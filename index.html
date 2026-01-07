@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bierbower Enterprises, LLC | Innovation in Marine and Fabric Products</title>
+    <meta name="description" content="Bierbower Enterprises - Innovation in Marine and Fabric Products. Parent company of H2O Marine, Fishmaster, Monster Tower, and Easy Awn.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Bierbower Enterprises, LLC">
+    <meta property="og:description" content="Innovation in Marine and Fabric Products">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.bierbower.net">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --deep-navy: #0a1628;
+            --ocean-blue: #1a3a5c;
+            --teal-accent: #2d8a9e;
+            --bronze: #c9956c;
+            --cream: #f5f2eb;
+            --white: #ffffff;
+            --text-light: #e8e6e1;
+            --text-muted: #8a9aab;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--deep-navy);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -50px;
+            left: 0;
+            background: var(--bronze);
+            color: var(--deep-navy);
+            padding: 12px 24px;
+            z-index: 1000;
+            font-weight: 600;
+            text-decoration: none;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s, padding 0.3s;
+        }
+
+        .nav.scrolled {
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 40px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--bronze);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a:focus::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--white);
+            margin: 6px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 120px 40px 80px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 80%, rgba(45, 138, 158, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(201, 149, 108, 0.1) 0%, transparent 50%),
+                linear-gradient(180deg, var(--deep-navy) 0%, var(--ocean-blue) 100%);
+            z-index: -2;
+        }
+
+        /* Animated Wave Background */
+        .wave-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z' fill='%231a3a5c' fill-opacity='0.3'/%3E%3C/svg%3E") repeat-x;
+            background-size: 50% 100%;
+            animation: wave 20s linear infinite;
+        }
+
+        .wave:nth-child(2) {
+            bottom: 10px;
+            opacity: 0.5;
+            animation: wave 15s linear reverse infinite;
+        }
+
+        .wave:nth-child(3) {
+            bottom: 20px;
+            opacity: 0.3;
+            animation: wave 25s linear infinite;
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-logo {
+            width: 180px;
+            height: auto;
+            margin-bottom: 40px;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+        }
+
+        .hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            letter-spacing: 8px;
+            line-height: 1.1;
+            color: var(--white);
+            margin-bottom: 20px;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-tagline {
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            font-weight: 300;
+            color: var(--bronze);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .hero-location {
+            font-size: 1rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .hero-location svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--teal-accent);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        .scroll-indicator svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--teal-accent);
+        }
+
+        /* About Section */
+        .about {
+            padding: 120px 40px;
+            background: var(--ocean-blue);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--bronze), transparent);
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--bronze);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            letter-spacing: 4px;
+            color: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            margin-bottom: 24px;
+            color: var(--text-light);
+        }
+
+        .about-text p:first-of-type::first-letter {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            float: left;
+            line-height: 1;
+            margin-right: 12px;
+            color: var(--bronze);
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .stat-card {
+            background: rgba(10, 22, 40, 0.5);
+            border: 1px solid rgba(201, 149, 108, 0.2);
+            padding: 30px;
+            text-align: center;
+            border-radius: 4px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--bronze);
+        }
+
+        .stat-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: var(--teal-accent);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Brands Section */
+        .brands {
+            padding: 120px 40px;
+            background: var(--deep-navy);
+            position: relative;
+        }
+
+        .brands::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--teal-accent), transparent);
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .brand-card {
+            background: linear-gradient(135deg, var(--ocean-blue) 0%, rgba(26, 58, 92, 0.5) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 40px 30px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-light);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 320px;
+        }
+
+        .brand-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--bronze);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .brand-card:hover,
+        .brand-card:focus {
+            transform: translateY(-10px);
+            border-color: var(--bronze);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .brand-card:hover::before,
+        .brand-card:focus::before {
+            transform: scaleX(1);
+        }
+
+        .brand-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(45, 138, 158, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            transition: background 0.3s;
+        }
+
+        .brand-card:hover .brand-icon {
+            background: rgba(201, 149, 108, 0.2);
+        }
+
+        .brand-icon svg {
+            width: 40px;
+            height: 40px;
+            stroke: var(--teal-accent);
+            fill: none;
+            stroke-width: 1.5;
+            transition: stroke 0.3s;
+        }
+
+        .brand-card:hover .brand-icon svg {
+            stroke: var(--bronze);
+        }
+
+        .brand-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .brand-description {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .brand-link {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--bronze);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s;
+        }
+
+        .brand-card:hover .brand-link {
+            gap: 12px;
+        }
+
+        .brand-link svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            fill: none;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 120px 40px;
+            background: var(--ocean-blue);
+            position: relative;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--bronze), transparent);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-details svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--teal-accent);
+            fill: none;
+            flex-shrink: 0;
+        }
+
+        .contact-details span {
+            color: var(--text-light);
+        }
+
+        .contact-form {
+            background: rgba(10, 22, 40, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 50px;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 4px;
+            color: var(--white);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--bronze);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px 40px;
+            background: var(--bronze);
+            border: none;
+            border-radius: 4px;
+            color: var(--deep-navy);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 149, 108, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 60px 40px;
+            background: var(--deep-navy);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            color: var(--white);
+            letter-spacing: 2px;
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--bronze);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .brands-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 16px 24px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(10, 22, 40, 0.98);
+                flex-direction: column;
+                padding: 30px;
+                gap: 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 16px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
+            }
+
+            .hero {
+                padding: 100px 24px 80px;
+            }
+
+            .about,
+            .brands,
+            .contact {
+                padding: 80px 24px;
+            }
+
+            .brands-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .brand-card {
+                min-height: auto;
+                padding: 30px 24px;
+            }
+
+            .about-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .contact-form {
+                padding: 30px 24px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                letter-spacing: 4px;
+            }
+
+            .about-text p:first-of-type::first-letter {
+                font-size: 3rem;
+            }
+
+            .stat-card {
+                padding: 20px;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Focus Styles for Accessibility */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid var(--bronze);
+            outline-offset: 4px;
+        }
+
+        /* Reduce Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="#" class="nav-logo" aria-label="Bierbower Enterprises Home">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 2L4 8v8c0 8 5.33 15.33 12 18 6.67-2.67 12-10 12-18V8L16 2z"/>
+                <path d="M10 16h12M16 10v12"/>
+            </svg>
+            BIERBOWER
+        </a>
+
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#brands">Our Brands</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="wave-container" aria-hidden="true">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+
+        <div class="hero-content">
+            <img src="https://bierbower.net/pics/bierbowerlogo.png"
+                 alt="Bierbower Enterprises LLC Logo"
+                 class="hero-logo"
+                 onerror="this.style.display='none'">
+
+            <h1 class="hero-title">Bierbower Enterprises</h1>
+            <p class="hero-tagline">Innovation in Marine and Fabric Products</p>
+            <p class="hero-location">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Cumming, Georgia
+            </p>
+        </div>
+
+        <div class="scroll-indicator" aria-hidden="true">
+            <span>Scroll</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="section-container">
+            <header class="section-header">
+                <span class="section-label">Who We Are</span>
+                <h2 class="section-title">Building Industry Leaders</h2>
+            </header>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Bierbower Enterprises, LLC is a holding company that unites industry-leading brands in the marine and fabric products sectors. From our headquarters in Cumming, Georgia, we drive innovation across multiple verticals, empowering our family of brands to deliver exceptional products to customers worldwide.</p>
+                    <p>Our portfolio spans marine accessories, fishing equipment, wakeboard towers, and awning solutions. Each brand maintains its unique identity while benefiting from our shared commitment to quality, innovation, and customer satisfaction.</p>
+                </div>
+
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Industry Brands</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">50K+</div>
+                        <div class="stat-label">Products Sold</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">USA Based</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <main id="main">
+        <section id="brands" class="brands">
+            <div class="section-container">
+                <header class="section-header">
+                    <span class="section-label">Portfolio</span>
+                    <h2 class="section-title">Our Family of Brands</h2>
+                </header>
+
+                <div class="brands-grid">
+                    <a href="https://h2omarine.com" class="brand-card" target="_blank" rel="noopener noreferrer">
+                        <div class="brand-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2L4 6v2c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V6l-8-4z"/>
+                                <path d="M8 12h8M12 8v8"/>
+                            </svg>
+                        </div>
+                        <h3 class="brand-name">H2O Marine</h3>
+                        <p class="brand-description">Premium marine products designed for durability and performance on the water.</p>
+                        <span class="brand-link">
+                            Visit Site
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </span>
+                    </a>
+
+                    <a href="https://fishmaster.com" class="brand-card" target="_blank" rel="noopener noreferrer">
+                        <div class="brand-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M20 12c-2-2-5-3-8-3s-6 1-8 3c2 2 5 3 8 3s6-1 8-3z"/>
+                                <circle cx="7" cy="12" r="1"/>
+                                <path d="M20 12l2-2M20 12l2 2"/>
+                            </svg>
+                        </div>
+                        <h3 class="brand-name">Fishmaster</h3>
+                        <p class="brand-description">Professional-grade fishing equipment trusted by anglers across the country.</p>
+                        <span class="brand-link">
+                            Visit Site
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </span>
+                    </a>
+
+                    <a href="https://monstertower.com" class="brand-card" target="_blank" rel="noopener noreferrer">
+                        <div class="brand-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M4 20h16M6 20V10l6-6 6 6v10"/>
+                                <path d="M9 20v-6h6v6"/>
+                            </svg>
+                        </div>
+                        <h3 class="brand-name">Monster Tower</h3>
+                        <p class="brand-description">Industry-leading wakeboard towers engineered for strength and style.</p>
+                        <span class="brand-link">
+                            Visit Site
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </span>
+                    </a>
+
+                    <a href="https://easyawn.com" class="brand-card" target="_blank" rel="noopener noreferrer">
+                        <div class="brand-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M3 8h18v2c0 4-4 8-9 8s-9-4-9-8V8z"/>
+                                <path d="M3 8c0-2 2-4 9-4s9 2 9 4"/>
+                            </svg>
+                        </div>
+                        <h3 class="brand-name">Easy Awn</h3>
+                        <p class="brand-description">Innovative awning solutions for residential and commercial applications.</p>
+                        <span class="brand-link">
+                            Visit Site
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="section-container">
+            <header class="section-header">
+                <span class="section-label">Get in Touch</span>
+                <h2 class="section-title">Contact Us</h2>
+            </header>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Start a Conversation</h3>
+                    <p>Whether you have questions about our brands, partnership opportunities, or just want to say hello, we'd love to hear from you.</p>
+
+                    <ul class="contact-details">
+                        <li>
+                            <svg viewBox="0 0 24 24" stroke-width="2">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                                <circle cx="12" cy="9" r="2.5"/>
+                            </svg>
+                            <span>Cumming, Georgia, USA</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" stroke-width="2">
+                                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                <path d="M22 6L12 13 2 6"/>
+                            </svg>
+                            <span>info@bierbower.net</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                            <span>Mon - Fri: 9:00 AM - 5:00 PM EST</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <form class="contact-form" action="#" method="POST" aria-label="Contact form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Smith" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="How can we help?">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell us more..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">Bierbower Enterprises, LLC</div>
+            <p class="footer-copyright">&copy; 2026 Bierbower Enterprises, LLC. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#brands">Brands</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !expanded);
+        });
+
+        // Scroll-based nav styling
+        const nav = document.querySelector('.nav');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    // Close mobile menu if open
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Form submission (placeholder - would need backend)
+        const form = document.querySelector('.contact-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            form.reset();
+        });
+    </script>
+</body>
+</html>
