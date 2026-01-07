@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220">
+  <defs>
+    <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2d8a9e"/>
+      <stop offset="100%" stop-color="#1a5a6e"/>
+    </linearGradient>
+    <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a1628"/>
+      <stop offset="100%" stop-color="#1a3a5c"/>
+    </linearGradient>
+    <linearGradient id="bronzeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4a574"/>
+      <stop offset="100%" stop-color="#c9956c"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Shield crest shape -->
+  <path d="M100 8 C145 8 180 30 180 52 L180 115 C180 158 145 188 100 195 C55 188 20 158 20 115 L20 52 C20 30 55 8 100 8Z"
+        fill="url(#shieldGradient)"
+        stroke="#c9956c"
+        stroke-width="4"/>
+
+  <!-- Inner border -->
+  <path d="M100 24 C136 24 164 42 164 58 L164 112 C164 146 136 172 100 178 C64 172 36 146 36 112 L36 58 C36 42 64 24 100 24Z"
+        fill="none"
+        stroke="#c9956c"
+        stroke-width="1.5"
+        opacity="0.5"/>
+
+  <!-- Water droplet -->
+  <path d="M100 45 C100 45 138 88 138 118 C138 140 121 158 100 158 C79 158 62 140 62 118 C62 88 100 45 100 45Z"
+        fill="url(#waterGradient)"/>
+
+  <!-- Wave lines inside drop -->
+  <path d="M72 125 Q86 112 100 125 Q114 138 128 125"
+        fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
+  <path d="M78 140 Q92 130 100 140 Q108 150 122 140"
+        fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Compass points -->
+  <polygon points="100,2 95,14 105,14" fill="url(#bronzeGradient)"/>
+  <polygon points="100,200 95,188 105,188" fill="url(#bronzeGradient)"/>
+  <polygon points="194,101 182,96 182,106" fill="url(#bronzeGradient)"/>
+  <polygon points="6,101 18,96 18,106" fill="url(#bronzeGradient)"/>
+
+  <!-- Rope circle detail -->
+  <circle cx="100" cy="101" r="92" fill="none" stroke="#c9956c" stroke-width="2" stroke-dasharray="6,4" opacity="0.25"/>
+
+  <!-- Company name -->
+  <text x="100" y="215" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="bold" fill="#c9956c" text-anchor="middle" letter-spacing="3">BIERBOWER</text>
+</svg>
